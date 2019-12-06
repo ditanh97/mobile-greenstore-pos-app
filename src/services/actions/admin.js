@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {API_URL} from 'react-native-dotenv'
 
 export const login = (content) => {
 const data = {
@@ -7,11 +8,10 @@ const data = {
 }
 return {
     type: 'LOGIN',
-    payload: axios.post ('https://green-store-pos.herokuapp.com/login', data), // ('/') => kalau proxy nya sudah langsung ke arah login
+    payload: axios.post (`${API_URL}/login`, data), // ('/') => kalau proxy nya sudah langsung ke arah login
 };
 };
 
-//'http://192.168.6.134:5000/login'
 
 export const logout = () => {
     return {
@@ -29,6 +29,6 @@ const data = {
 }
 return {
     type: 'REGISTER',
-    payload: axios.post ('https://green-store-pos.herokuapp.com/register', data), // ('/') => kalau proxy nya sudah langsung ke arah login
+    payload: axios.post (`${API_URL}/register`, data), // ('/') => kalau proxy nya sudah langsung ke arah login
 };
 };

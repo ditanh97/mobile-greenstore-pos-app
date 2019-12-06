@@ -1,7 +1,9 @@
 import axios from 'axios';
 import {authHeader} from '../../api/helper';
-import {GET_PRODUCT} from '../constants'
 import AsyncStorage from '@react-native-community/async-storage';
+import {API_URL} from 'react-native-dotenv'
+import {GET_PRODUCT} from '../constants'
+
 // import { authHeader } from '../../api';
 
 // let token;
@@ -30,7 +32,7 @@ export const getProducts = async () => {
   // console.log("header bismillah", header)
   return {
     type: GET_PRODUCT,
-    payload: axios.get ('https://green-store-pos.herokuapp.com/products/', {
+    payload: axios.get (`${API_URL}/products`, {
       headers: await authHeader()
     }),
     // payload: axios.get ('http://192.168.6.134:5000/products/', header),
@@ -41,7 +43,7 @@ export const getProductsPromise = () => {
   return authHeader().then(header => {
     return {
       type: GET_PRODUCT,
-      payload: axios.get ('https://green-store-pos.herokuapp.com/products/', {
+      payload: axios.get (`${API_URL}/products`, {
         headers: header
       }),
     };

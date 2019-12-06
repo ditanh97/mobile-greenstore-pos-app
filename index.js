@@ -1,32 +1,17 @@
 /**
  * @format
  */
-import React, {useState, Component} from 'react';
+import React, {Component} from 'react';
 import {AppRegistry} from 'react-native';
 import {name as appName} from './app.json';
 import App from './App';
 import Splash from './src/components/Splash';
-import Welcome from './src/views/Welcome';
-import Browse from './src/views/Browse';
-import  screens from './src/navigation'
 
-// const Main = (props) =>{
-//     const [state,setState] = useState({
-//         currentScreen: 'Splash',
-//     })
-//     setTimeout( () => {
-//         setState({currentScreen: 'App'})
-//     }, 3000)
+//testing modules
+import test from './src/sample/test';
+import Checkout from './src/screens/Checkout';
+import SwitchNav from './src/sample/navigation';
 
-//     const splash = () => {
-//         const {currentScreen} = state
-//         let mainScreen = currentScreen === 'Splash' ? <Splash/> : <App/>
-//         return mainScreen
-//     }
-//     return (
-//         {splash}
-//     )
-// }
 
 class Main extends Component {
     constructor(props) {
@@ -45,5 +30,9 @@ class Main extends Component {
 
 AppRegistry.registerComponent(appName, () => Main);
 
-// AppRegistry.registerComponent(appName, () => Browse);
-// AppRegistry.registerComponent(appName, () => screens);
+
+
+//testing registers
+// AppRegistry.registerComponent(appName, () => test);
+// AppRegistry.registerComponent(appName, () => Welcome);
+// AppRegistry.registerComponent(appName, () => SwitchNav);

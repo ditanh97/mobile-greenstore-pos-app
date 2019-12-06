@@ -1,3 +1,30 @@
+import React, {Component} from 'react';
+import {StyleSheet} from 'react-native';
+import ReduxApp from './src/services'
+
+
+// const App: () => React$Node = () =>
+const App = () => {
+  return (
+      <ReduxApp/>
+  );
+};
+export default App;
+
+const styles = StyleSheet.create({
+  sectionContainer: {
+    flex: 1, 
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+});
+
+
+
+
+
+
 // import React from 'react';
 // import {
 //   StyleSheet,
@@ -58,39 +85,3 @@
 
 // export default App;
 
-
-
-
-//======================INI YANG MASIH AWAL====================================
-
-import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-} from 'react-native';
-import ReduxApp from './src/services'
-import SampleAsyncStorage from './src/views/Auth';
-
-// const App: () => React$Node = () =>
-const App = () => {
-  return (
-    <View style={styles.sectionContainer}>
-      {/* <Text style= {{fontSize:30}}>Dita Nurhalimah</Text>
-      <Text style= {{color: 'green', fontSize:25}}>Fullstack Engineer</Text> */}
-      {/* <SampleAsyncStorage/> */}
-      <ReduxApp/>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    flex: 1, 
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-});
-
-export default App;

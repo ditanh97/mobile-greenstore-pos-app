@@ -1,24 +1,52 @@
 import axios from 'axios';
 import {authHeader} from '../../api/helper';
 import {GET_PRODUCT} from '../constants'
+import AsyncStorage from '@react-native-community/async-storage';
+// import { authHeader } from '../../api';
 
-const header = {
-    headers: authHeader()
-};
+// let token;
+// AsyncStorage.getItem('user', ()=>{}).then(user=>{
+//   token = user
+// });
+
+
+// const header = {
+//     headers: {"authorization": token}
+// };
+
+// const header = {
+//   headers: authHeader().then(token => token)
+// };
+
+
+
 
 // const config = {
 //     data: {},
 //     headers: authHeader()
 // }
 
-export const getProducts = () => {
-  
+export const getProducts = async () => {
+  // console.log("header bismillah", header)
   return {
     type: GET_PRODUCT,
-    payload: axios.get ('https://green-store-pos.herokuapp.com/products/', header),
+    payload: axios.get ('https://green-store-pos.herokuapp.com/products/', {
+      headers: await authHeader()
+    }),
     // payload: axios.get ('http://192.168.6.134:5000/products/', header),
   };
 };
+
+export const getProductsPromise = () => {
+  return authHeader().then(header => {
+    return {
+      type: GET_PRODUCT,
+      payload: axios.get ('https://green-store-pos.herokuapp.com/products/', {
+        headers: header
+      }),
+    };
+  });
+}
 
 // export const getProductsById = (id) => {
 //     return { 

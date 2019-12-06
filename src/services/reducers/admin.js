@@ -1,4 +1,4 @@
-import {AsyncStorage} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 const initialState = {
     adminList: [],
     isRegistered: false,
@@ -16,12 +16,13 @@ const initialState = {
           isRejected: true,
         };
       case 'LOGIN_FULFILLED':
-        // state.adminList.push (action.payload.data);
+        state.adminList.push (action.payload.data);
+        console.log('ini token',action.payload.data.token)
         const data = {
             username: action.payload.data.username,
             token: action.payload.data.token,
         }
-        AsyncStorage.setItem('user', data);
+        AsyncStorage.setItem('user', JSON.stringify(data));
         return {
           ...state,
           isLogin: true,
